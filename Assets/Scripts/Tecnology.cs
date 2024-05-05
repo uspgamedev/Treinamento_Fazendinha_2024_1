@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public enum ResourceType {DINHEIRO, ALIMENTO, PRODUTO}
 public class Tecnology : MonoBehaviour
 {
     //public ResourceType resourcetype;
+    [Header("Preço em recursos")]
     public float moneySubtract;
     public float foodSubtract;
     public float productSubtract;
-
+    [Header("Aumento da taxa")]
     public float moneyGrowth;
     public float foodGrowth;
     public float productGrowth;
+    [Header("UI")]
+    public TextMeshProUGUI moneyUI;
+    public TextMeshProUGUI foodUI;
+    public TextMeshProUGUI productUI;
 
     public void ChangeAllGrowthRate()
     {
@@ -21,7 +26,7 @@ public class Tecnology : MonoBehaviour
         GameManager.Instance.produto.ChangeGrowthRate(productGrowth);
     }
 
-    public void Farm()
+    public void OnClick()
     {
         int enoughResources = -2;
         if (GameManager.Instance.dinheiro.quantity >= moneySubtract)
@@ -44,5 +49,13 @@ public class Tecnology : MonoBehaviour
             GameManager.Instance.produto.ChangeQuantity(-productSubtract);
             ChangeAllGrowthRate();
         }
+        Destroy(gameObject);
+    }
+
+    private void Awake()
+    {
+        moneyUI.text = moneySubtract.ToString();
+        foodUI.text = foodSubtract.ToString();
+        productUI.text = productSubtract.ToString();
     }
 }
