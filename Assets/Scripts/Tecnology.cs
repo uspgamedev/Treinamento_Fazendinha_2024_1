@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class Tecnology : MonoBehaviour
+public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //public ResourceType resourcetype;
     [Header("Preço em recursos")]
@@ -18,6 +19,10 @@ public class Tecnology : MonoBehaviour
     public TextMeshProUGUI moneyUI;
     public TextMeshProUGUI foodUI;
     public TextMeshProUGUI productUI;
+    [TextArea(4,6)]
+    public string description;
+
+    private bool pointerOver = false;
 
     public void ChangeAllGrowthRate()
     {
@@ -48,8 +53,8 @@ public class Tecnology : MonoBehaviour
             GameManager.Instance.alimento.ChangeQuantity(-foodSubtract);
             GameManager.Instance.produto.ChangeQuantity(-productSubtract);
             ChangeAllGrowthRate();
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     private void Awake()
@@ -57,5 +62,27 @@ public class Tecnology : MonoBehaviour
         moneyUI.text = moneySubtract.ToString();
         foodUI.text = foodSubtract.ToString();
         productUI.text = productSubtract.ToString();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        pointerOver = true;
+        GameUIManager.Instance.techDescriptionBox.SetActive(true);
+        GameUIManager.Instance.techDescriptionText.text = description;
+
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        pointerOver = false;
+        GameUIManager.Instance.techDescriptionBox.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (pointerOver)
+        {
+           GameUIManager.Instance.techDescriptionBox.GetComponent<RectTransform>().position = Input.mousePosition + new Vector3(-10, -10, 0);
+        }
     }
 }
