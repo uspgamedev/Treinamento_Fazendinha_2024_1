@@ -53,6 +53,7 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             GameManager.Instance.alimento.ChangeQuantity(-foodSubtract);
             GameManager.Instance.produto.ChangeQuantity(-productSubtract);
             ChangeAllGrowthRate();
+            GameUIManager.Instance.techDescriptionBox.SetActive(false);
             Destroy(gameObject);
         }
     }

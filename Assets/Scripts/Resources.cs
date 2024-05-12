@@ -22,7 +22,6 @@ public class Resources : MonoBehaviour
     {
         GrowQuantity();
         UpdateResourceUI();
-
     }
 
     // Atualiza os Recursos na Interface, arredondando em duas casas decimais
@@ -59,6 +58,11 @@ public class Resources : MonoBehaviour
     public void ChangeGrowthRate(float value)
     {
         growthRate += value;
+    }
+
+    public void ResetQuantity()
+    {
+        quantity = 0;
     }
 
 }
