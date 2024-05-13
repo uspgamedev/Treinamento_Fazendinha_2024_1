@@ -69,6 +69,7 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         pointerOver = true;
         GameUIManager.Instance.techDescriptionBox.SetActive(true);
+        GameUIManager.Instance.techDescriptionBox.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
         GameUIManager.Instance.techDescriptionText.text = description;
 
     }
@@ -83,7 +84,7 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (pointerOver)
         {
-           GameUIManager.Instance.techDescriptionBox.GetComponent<RectTransform>().position = Input.mousePosition + new Vector3(-10, -10, 0);
+            GameUIManager.Instance.techDescriptionBox.GetComponent<RectTransform>().position = Input.mousePosition + new Vector3(-10, -10, 0);
         }
     }
 }

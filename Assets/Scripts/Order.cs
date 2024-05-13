@@ -4,14 +4,21 @@ using UnityEngine;
 using TMPro;
 using System.Threading;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
-public class Order : MonoBehaviour
+public class Order : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     public float timer;
     private float vartimer;
 
+    private bool pointerOver;
+
     public TextMeshProUGUI timerUI;
+
+    [TextArea(4, 6)]
+    public string description;
 
     public void SellResources()
     {
@@ -82,6 +89,30 @@ public class Order : MonoBehaviour
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        pointerOver = true;
+        GameUIManager.Instance.techDescriptionBox.SetActive(true);
+        GameUIManager.Instance.techDescriptionBox.GetComponent<RectTransform>().pivot = new Vector2(0, 0);
+        GameUIManager.Instance.techDescriptionText.text = description;
+
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        pointerOver = false;
+        GameUIManager.Instance.techDescriptionBox.SetActive(false);
+    }
+
+    public void DescriptionBoxUpdate()
+    {
+        if (pointerOver)
+        {
+            GameUIManager.Instance.techDescriptionBox.GetComponent<RectTransform>().position = Input.mousePosition + new Vector3(10, 10, 0);
+        }
+    }
+
+
     private void Awake()
     {
         vartimer = timer;
@@ -92,6 +123,7 @@ public class Order : MonoBehaviour
     {
         ButtonCooldown();
         UpdateUI();
+        DescriptionBoxUpdate();
     }
 
 }
