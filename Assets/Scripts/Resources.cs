@@ -60,6 +60,11 @@ public class Resources : MonoBehaviour
         growthRate += value;
     }
 
+    public void SetMaxQuantity(int value)
+    {
+        maxQuantity = value;
+    }
+
     public void ResetQuantity()
     {
         quantity = 0;

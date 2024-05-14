@@ -36,13 +36,13 @@ public class Order : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         */
         bool hasEnoughResources = false;
-        if (GameManager.Instance.alimento.quantity >= 10 && GameManager.Instance.alimento.quantity + 10 <= GameManager.Instance.alimento.maxQuantity)
+        if (GameManager.Instance.alimento.quantity >= 10 && GameManager.Instance.dinheiro.quantity + 1 <= GameManager.Instance.dinheiro.maxQuantity)
         {
             GameManager.Instance.alimento.ChangeQuantity(-10);
             GameManager.Instance.dinheiro.ChangeQuantity(1);
             hasEnoughResources = true;
         }
-        if (GameManager.Instance.produto.quantity >= 2 && GameManager.Instance.produto.quantity + 2 <= GameManager.Instance.produto.maxQuantity)
+        if (GameManager.Instance.produto.quantity >= 2 && GameManager.Instance.dinheiro.quantity + 1 <= GameManager.Instance.dinheiro.maxQuantity)
         {
             GameManager.Instance.produto.ChangeQuantity(-2);
             GameManager.Instance.dinheiro.ChangeQuantity(1);

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2636935944677781817
+--- !u!1001 &2426957957242965433
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2508649743314285480, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_Name
-      value: Trucks
+      value: Farm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479184452075530192, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
+      propertyPath: foodGrowth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479184452075530192, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
+      propertyPath: description
+      value: "Aumenta a produ\xE7\xE3o de <color=orange>alimento</color> em 0.1."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3479184452075530192, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
+      propertyPath: moneySubtract
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_Pivot.x
@@ -22,19 +34,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -62,23 +74,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000011444
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083750655289966013, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -94,9 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8850204199717710860, guid: 06c4bb8c5dcf8e14f988ef1b1d206bf9, type: 3}
       propertyPath: m_text
-      value: 'Trucks
-
-'
+      value: Farm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

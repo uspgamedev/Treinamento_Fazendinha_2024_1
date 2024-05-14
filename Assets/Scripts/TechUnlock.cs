@@ -1,35 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class TechUnlock : MonoBehaviour
 {
-    //public ResourceType resourcetype;
-    [Header("Preço em recursos")]
+    [Header("Preço")]
     public float moneySubtract;
     public float foodSubtract;
     public float productSubtract;
-    [Header("Aumento da taxa")]
-    public float moneyGrowth;
-    public float foodGrowth;
-    public float productGrowth;
+    [Header("Ordem")]
+    public GameObject order;
     [Header("UI")]
     public TextMeshProUGUI moneyUI;
     public TextMeshProUGUI foodUI;
     public TextMeshProUGUI productUI;
-    [TextArea(4,6)]
+    [TextArea(4, 6)]
     public string description;
 
     private bool pointerOver = false;
-
-    public void ChangeAllGrowthRate()
-    {
-        GameManager.Instance.dinheiro.ChangeGrowthRate(moneyGrowth);
-        GameManager.Instance.alimento.ChangeGrowthRate(foodGrowth);
-        GameManager.Instance.produto.ChangeGrowthRate(productGrowth);
-    }
 
     public void OnClick()
     {
@@ -52,12 +42,11 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             GameManager.Instance.dinheiro.ChangeQuantity(-moneySubtract);
             GameManager.Instance.alimento.ChangeQuantity(-foodSubtract);
             GameManager.Instance.produto.ChangeQuantity(-productSubtract);
-            ChangeAllGrowthRate();
+            order.SetActive(true);
             GameUIManager.Instance.techDescriptionBox.SetActive(false);
             Destroy(gameObject);
         }
     }
-
     private void Awake()
     {
         moneyUI.text = moneySubtract.ToString();
@@ -71,7 +60,6 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         GameUIManager.Instance.techDescriptionBox.SetActive(true);
         GameUIManager.Instance.techDescriptionBox.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
         GameUIManager.Instance.techDescriptionText.text = description;
-
     }
 
     public void OnPointerExit(PointerEventData eventData)
