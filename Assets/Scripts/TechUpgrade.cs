@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using System;
+using UnityEngine.UIElements;
+using DG.Tweening;
+using UnityEditor.UI;
 
 public enum TechType
 {
@@ -22,6 +26,7 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public float moneyGain;
     public float foodGain;
     public float productGain;
+    public GameObject[] techList;
     [Header("UI")]
     public TextMeshProUGUI moneyUI;
     public TextMeshProUGUI foodUI;
@@ -71,8 +76,17 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             GameManager.Instance.produto.ChangeQuantity(-productSubtract);
             ApplyReward();
             GameUIManager.Instance.techDescriptionBox.SetActive(false);
-            Destroy(gameObject);
+            foreach(GameObject tecnologia in techList)
+            {
+                tecnologia.SetActive(true);
+            }
+            this.GetComponent<CanvasGroup>().DOFade(0f, 0.5f).SetEase(Ease.OutExpo).onComplete = RemoveTech;
         }
+    }
+
+    public void RemoveTech()
+    {
+        Destroy(this.gameObject);
     }
 
     private void Awake()
@@ -96,6 +110,8 @@ public class Tecnology : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         pointerOver = false;
         GameUIManager.Instance.techDescriptionBox.SetActive(false);
     }
+
+
 
     private void Update()
     {

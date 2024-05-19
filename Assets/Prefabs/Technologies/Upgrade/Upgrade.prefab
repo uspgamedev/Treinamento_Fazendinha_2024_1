@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 8158753753285298816}
   - component: {fileID: 916798848728811213}
   - component: {fileID: 3479184452075530192}
+  - component: {fileID: 3471122668391386954}
   m_Layer: 5
   m_Name: Upgrade
   m_TagString: Untagged
@@ -280,16 +281,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9532cb8ea712d1949b724b4c42ddf6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   moneySubtract: 0
   foodSubtract: 0
   productSubtract: 0
-  moneyGrowth: 0
-  foodGrowth: 0
-  productGrowth: 0
+  moneyGain: 0
+  foodGain: 0
+  productGain: 0
+  techList: []
   moneyUI: {fileID: 1195082072967743220}
   foodUI: {fileID: 7387342067769844836}
   productUI: {fileID: 7705838945823163032}
   description: 
+--- !u!225 &3471122668391386954
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508649743314285480}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2789796221254777071
 GameObject:
   m_ObjectHideFlags: 0
